@@ -35,11 +35,21 @@ end
 
 @inline Base.show(io::IO, g::Gray) = print(io, "$(typeof(g))($(Integer(g)))")
 
+########
+# APIs #
+########
+
 @inline Gray(x::UInt8) = Gray8(x)
 @inline Gray(x::UInt16) = Gray16(x)
 @inline Gray(x::UInt32) = Gray32(x)
 @inline Gray(x::UInt64) = Gray64(x)
 @inline Gray(x::UInt128) = Gray128(x)
 @inline Gray(x::Integer) = Gray(unsigned(x))
+
+@inline Gray8(x::Integer) = Gray8(UInt8(unsigned(x)))
+@inline Gray16(x::Integer) = Gray16(UInt16(unsigned(x)))
+@inline Gray32(x::Integer) = Gray32(UInt32(unsigned(x)))
+@inline Gray64(x::Integer) = Gray64(UInt64(unsigned(x)))
+@inline Gray128(x::Integer) = Gray128(UInt128(unsigned(x)))
 
 end
