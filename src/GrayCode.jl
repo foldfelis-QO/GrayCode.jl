@@ -22,7 +22,7 @@ primitive type Gray128 <: Gray 128 end
 @inline reinterpret2Int(g::Gray32) = reinterpret(UInt32, g)
 @inline reinterpret2Int(g::Gray64) = reinterpret(UInt64, g)
 @inline reinterpret2Int(g::Gray128) = reinterpret(UInt128, g)
-@inline function _int(g::T) where {T<:Gray}
+@inline function Base.Integer(g::Gray)
     x = reinterpret2Int(g)
     mask = x >> 1
     while mask > 0
@@ -33,7 +33,7 @@ primitive type Gray128 <: Gray 128 end
     return x
 end
 
-Base.show(io::IO, g::Gray) = print(io, "$(typeof(g))($(_int(g)))")
+@inline Base.show(io::IO, g::Gray) = print(io, "$(typeof(g))($(Integer(g)))")
 
 @inline Gray(x::UInt8) = Gray8(x)
 @inline Gray(x::UInt16) = Gray16(x)
