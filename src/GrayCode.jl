@@ -52,4 +52,12 @@ end
 @inline Gray64(x::Integer) = Gray64(UInt64(unsigned(x)))
 @inline Gray128(x::Integer) = Gray128(UInt128(unsigned(x)))
 
+#############
+# Operators #
+#############
+
+@inline Base.:+(g1::Gray, g2::Gray) = Gray(Integer(g1) + Integer(g2))
+@inline Base.:-(g1::Gray, g2::Gray) = Gray(Integer(g1) - Integer(g2))
+@inline Base.:*(g1::Gray, g2::Gray) = Gray(Integer(g1) * Integer(g2))
+
 end
