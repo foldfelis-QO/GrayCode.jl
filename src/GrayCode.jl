@@ -23,11 +23,9 @@ primitive type Gray128 <: Gray 128 end
 @inline reinterpret2Int(g::Gray64) = reinterpret(UInt64, g)
 @inline reinterpret2Int(g::Gray128) = reinterpret(UInt128, g)
 @inline function Base.Integer(g::Gray)
-    x = reinterpret2Int(g)
-    mask = x >> 1
-    while mask > 0
+    x = mask = reinterpret2Int(g)
+    while (mask >>= 1) != 0
         x ⊻= mask
-        mask >>= 1
     end
 
     return x
