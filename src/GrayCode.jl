@@ -50,6 +50,13 @@ end
 @inline Gray64(x::Integer) = Gray64(UInt64(unsigned(x)))
 @inline Gray128(x::Integer) = Gray128(UInt128(unsigned(x)))
 
+@inline nbits(::Type{Gray8}) = 8
+@inline nbits(::Type{Gray16}) = 16
+@inline nbits(::Type{Gray32}) = 32
+@inline nbits(::Type{Gray64}) = 64
+@inline nbits(::Type{Gray128}) = 128
+@inline nbits(::G) where {G<:Gray} = nbits(G)
+
 #############
 # Operators #
 #############
