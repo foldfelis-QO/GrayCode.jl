@@ -1,6 +1,7 @@
 module GrayCode
 
 export Gray, Gray8, Gray16, Gray32, Gray64, Gray128
+export nbits
 
 abstract type Gray <: Unsigned end
 
