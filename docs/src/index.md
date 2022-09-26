@@ -4,7 +4,7 @@ CurrentModule = GrayCode
 
 # GrayCode
 
-Documentation for [GrayCode](https://github.com/foldfelis/GrayCode.jl).
+Documentation for [GrayCode](https://github.com/foldfelis-QO/GrayCode.jl).
 
 ```@index
 ```
